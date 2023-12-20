@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PC端页面</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+
+        .header {
+            position: relative;
+        }
+
+        .header img {
+            width: 100%;
+            height: 700px;
+        }
+
+        .button {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #FFFAE8;
+            color: black;
+            font-weight: bold;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .button:hover {
+            transform: translateX(-50%) scale(1.1);
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .content .item {
+            width: 20%;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .content .item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .content .item .overlay-text {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: transparent;
+            color: black;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 10px;
+            z-index: 1;
+        }
+
+        .item:hover img {
+            opacity: 0.5;
+        }
+
+        .item:hover .overlay-text {
+            display: block;
+        }
+
+   
+        .text:hover {
+            background-color: #898989;
+        }
+
+        .text1 {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 50px;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientFlow 10s ease infinite;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .overlay img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .overlay p {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color:transparent;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .show-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #7D7493;
+            color: black;
+            font-weight: bold;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .show-button:hover {
+            background-color: #898989;
+        }
+         @keyframes gradientFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="eb21edcf49f21ba3a0c9dd4fe005afe.jpg" alt="Big Image">
+        <button class="button">点击开始探索</button>
+    </div>
+    <p class="text1">浙江省博物馆十大镇馆之宝</p>
+    <div class="content">
+        <div class="item zoom">
+            <img src="e0b70eff02db70a77b743d7a9ee48d0.jpg" alt="Small Image 1">
+            <p class="overlay-text">唐彩凤鸣歧七弦琴</p>
+        </div>
+        <div class="item zoom">
+            <img src="0c8f20830a5c5b5d674ea47f9310b84.jpg" alt="Small Image 2">
+            <p class="overlay-text">新时期时代良渚文化玉琮</p>
+        </div>
+        <div class="item zoom">
+            <img src="b3f281033ee1022c0525480dacf60e0.jpg" alt="Small Image 3">
+            <p class="overlay-text">元龙泉窑青瓷舟形砚滴</p>
+        </div>
+        <div class="item zoom">
+            <img src="1ee5180844f755668abbe83b8a93a94.jpg" alt="Small Image 4">
+            <p class="overlay-text">吴越国鎏金纯银阿育王塔</p>
+        </div>
+        <div class="item zoom">
+            <img src="f345d4c4791d323b390dc2eae58049a.jpg" alt="Small Image 5">
+            <p class="overlay-text">元黄公望富春山居图卷</p>
+        </div>
+        <div class="item zoom">
+            <img src="9624fb8fffd3898c3a62bbd0882a713.jpg" alt="Small Image 6">
+            <p class="overlay-text">双鸟朝阳纹牙雕</p>
+        </div>
+        <div class="item zoom">
+            <img src="d02ae744853461268dee6c64af4a66a.jpg" alt="Small Image 7">
+            <p class="overlay-text">清金箔贴花花轿</p>
+        </div>
+        <div class="item zoom">
+            <img src="d8f12a9035966ffdf5751ff15d7b271.jpg" alt="Small Image 8">
+            <p class="overlay-text">战国伎乐铜房屋模型</p>
+        </div>
+        <div class="item zoom">
+            <img src="59f67b871a319f7a46e527bc2dd22b6.jpg" alt="Small Image 9">
+            <p class="overlay-text">彩塑泥菩萨立像</p>
+        </div>
+        <div class="item zoom">
+            <img src="4032e870e524b29815cd56ba7975c5e.jpg" alt="Small Image 10">
+            <p class="overlay-text">战国越王者旨於睗剑</p>
+        </div>
+    </div>
+    <div class="overlay">
+        <img src="" alt="Large Image">
+        <p class="overlay-text"></p>
+    </div>
+    <button class="show-button">点击预览十大镇馆之宝</button>
+    <script>
+        const smallImages = document.querySelectorAll('.content .item.zoom');
+        const overlay = document.querySelector('.overlay');
+        const overlayImage = overlay.querySelector('img');
+        const overlayText = overlay.querySelector('p');
+        const showButton = document.querySelector('.show-button');
+        let currentIndex = 0;
+
+        smallImages.forEach((smallImage, index) => {
+            smallImage.addEventListener('click', () => {
+                overlayImage.src = smallImage.querySelector('img').src;
+                overlayText.textContent = smallImage.querySelector('.overlay-text').textContent;
+                overlay.style.display = 'flex';
+                currentIndex = index;
+            });
+        });
+
+        overlay.addEventListener('click', () => {
+            overlay.style.display = 'none';
+            overlayText.textContent = '';
+        });
+
+        showButton.addEventListener('click', () => {
+            if (currentIndex >= smallImages.length) {
+                currentIndex = 0;
+                smallImages.forEach((smallImage) => {
+                    smallImage.querySelector('img').style.display = 'none';
+                });
+            }
+            smallImages[currentIndex].querySelector('img').style.display = 'block';
+            currentIndex++;
+            if (currentIndex < smallImages.length) {
+                setTimeout(() => {
+                    showButton.click();
+                    window.scrollTo(0,document.body.scrollHeight);
+                }, 500);
+            }
+        });
+    </script>
+</body>
+</html>
