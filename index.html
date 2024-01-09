@@ -147,7 +147,7 @@
         .show-button:hover {
             background-color: #898989;
         }
-         @keyframes gradientFlow {
+        @keyframes gradientFlow {
             0% {
                 background-position: 0% 50%;
             }
@@ -162,7 +162,7 @@
 <body>
     <div class="header">
         <img src="eb21edcf49f21ba3a0c9dd4fe005afe.jpg" alt="Big Image">
-        <button class="button">点击开始探索</button>
+        <button class="button" id="startButton">点击开始探索</button>
     </div>
     <p class="text1">浙江省博物馆十大镇馆之宝</p>
     <div class="content">
@@ -212,44 +212,53 @@
         <p class="overlay-text"></p>
     </div>
     <button class="show-button">点击预览十大镇馆之宝</button>
-    <script>
-        const smallImages = document.querySelectorAll('.content .item.zoom');
-        const overlay = document.querySelector('.overlay');
-        const overlayImage = overlay.querySelector('img');
-        const overlayText = overlay.querySelector('p');
-        const showButton = document.querySelector('.show-button');
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        const smallImages = $('.content .item.zoom');
+        const overlay = $('.overlay');
+        const overlayImage = overlay.find('img');
+        const overlayText = overlay.find('p');
+        const showButton = $('.show-button');
         let currentIndex = 0;
+        
 
-        smallImages.forEach((smallImage, index) => {
-            smallImage.addEventListener('click', () => {
-                overlayImage.src = smallImage.querySelector('img').src;
-                overlayText.textContent = smallImage.querySelector('.overlay-text').textContent;
-                overlay.style.display = 'flex';
+        smallImages.each(function(index) {
+            $(this).on('click', function() {
+                overlayImage.attr('src', $(this).find('img').attr('src'));
+                overlayText.text($(this).find('.overlay-text').text());
+                overlay.css('display', 'flex');
                 currentIndex = index;
             });
         });
 
-        overlay.addEventListener('click', () => {
-            overlay.style.display = 'none';
-            overlayText.textContent = '';
+        overlay.on('click', function() {
+            overlay.css('display', 'none');
+            overlayText.text('');
         });
 
-        showButton.addEventListener('click', () => {
+        showButton.on('click', function() {
             if (currentIndex >= smallImages.length) {
                 currentIndex = 0;
-                smallImages.forEach((smallImage) => {
-                    smallImage.querySelector('img').style.display = 'none';
+                smallImages.each(function() {
+                    $(this).find('img').css('display', 'none');
                 });
             }
-            smallImages[currentIndex].querySelector('img').style.display = 'block';
+            smallImages.eq(currentIndex).find('img').css('display', 'block');
             currentIndex++;
             if (currentIndex < smallImages.length) {
-                setTimeout(() => {
-                    showButton.click();
-                    window.scrollTo(0,document.body.scrollHeight);
+                setTimeout(function() {
+                    showButton.trigger('click');
+                    window.scrollTo(0, document.body.scrollHeight);
                 }, 500);
             }
         });
-    </script>
+        $('#startButton').on('click', function() {
+                window.location.href = 'https://gaoyv8888.github.io/ex5/';
+        });
+       
+    });
+</script>
+
 </body>
 </html>
